@@ -1,0 +1,26 @@
+
+
+
+<nav>
+  <a routerLink="./adminlist" routerLinkActive="active" >
+    <img src="assets/list.png" class="icon"/>
+  </a> 
+ <a routerLink="./add" routerLinkActive="active" >
+   <img src="assets/add.png" class="icon"/>
+  </a>
+   <a [routerLink]="['./edit',1]" routerLinkActive="active">
+    <img src="assets/edit.png" class="icon"/>
+  </a> 
+  <a [routerLink]="['./formateurs']" routerLinkActive="active">
+    <p> Formateurs </p>
+  </a>  
+   <a [routerLink]="['./participants']" routerLinkActive="active">
+ Participants
+  </a> 
+
+</nav>
+
+<router-outlet> </router-outlet> 
+
+ 
+

@@ -1,0 +1,17 @@
+
+<section>
+ 
+ <app-session-item *ngFor="let sessionItem of sessionItems"
+  [session]="sessionItem"
+   [ngClass]="{'session-web': sessionItem.name ==='Formation Web',
+  'session-mobile': sessionItem.name === 'Formation Mobile'}">
+  </app-session-item>
+
+
+
+</section>
+<footer>
+  <a routerLink="/admin" routerLinkActive="active" >
+   <img src="assets/admin.png" class="icon" />
+  </a>
+</footer>

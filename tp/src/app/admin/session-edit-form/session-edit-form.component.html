@@ -1,0 +1,45 @@
+<header> 
+  <h2> Modifier une session de formation </h2>
+</header >
+<form  #f="ngForm"
+(ngSubmit)="onSubmit(f)">
+  <ul>
+    <li>
+      
+      <label for="name" > Name </label>
+      <select name="name" id="name" [(ngModel)]=session.name required >
+        <option value="Formation Web" > Web </option>
+        <option value="Formation Mobile" > Mobile </option>
+        
+      </select>
+   
+    </li>
+    <li>
+      <label for="track"> Track </label>
+      <select name="track" id="track" [(ngModel)]=session.track required > 
+        <option value="MEAN Stack" > MEAN Stack </option>
+        <option value="Angular"> Angular </option>
+        <option value="NodeJS"> NodeJS </option>
+      </select>
+         <p> {{ track }} </p>
+    </li>
+    <i>
+      <label for="date" > Date </label>
+      <input type="date | date: 'dd/MM/yyyy'" name="date" id="date"  [(ngModel)]=session.date >
+      
+      <label for="duree" > Days </label>
+      <input type="number"  name="duree" id="duree" [(ngModel)]=session.duree >
+    </i>
+    <i>
+      <label for="local" > Location </label>
+      <input type="text" name="local" id="local" required [(ngModel)]=session.local>
+    </i>
+    <i> 
+      <label for="participants" > Participants </label>
+      <input type="number" name="participants" id="participants" required [(ngModel)]=session.participants>
+    </i>
+  </ul>
+    <button type="submit" [disabled]=!f.valid> Save </button>
+  
+</form>
+  

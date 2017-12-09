@@ -1,0 +1,14 @@
+ <h2> {{session.name}} </h2>
+
+ Prévu le {{session.date | date}} pendant {{session.duree}} 
+  jours 
+  
+<div> {{ session.local }} </div>
+<div> {{session.participants}} participants </div>
+<div class="tools"> 
+  <a class="delete" (click)="onDelete()"> suppression </a>
+  
+ 
+
+<a class="partager" [routerLink]="['../edit',session.id]"  > Modification </a>
+</div> 
