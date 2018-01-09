@@ -12,6 +12,7 @@ import { AdminSessionItemComponent } from './admin-session-item/admin-session-it
 import { SessionEditFormComponent } from "./session-edit-form/session-edit-form.component";
 import { FormateursComponent } from "./formateurs/formateurs.component";
 import { ParticipantsComponent } from "./participants/participants.component";
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const adminRoutes: Routes = [
   {
@@ -27,8 +28,8 @@ const adminRoutes: Routes = [
       { path: 'edit/:id', component: SessionEditFormComponent },
       { path: 'formateurs', component: FormateursComponent },
       { path: 'participants', component: ParticipantsComponent },
-
-      { path: '', redirectTo: 'adminlist', pathMatch: 'full' }
+       { path: 'dashboard', component: DashboardComponent },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
 
     ]
   }
@@ -46,7 +47,8 @@ const adminRoutes: Routes = [
     AdminSessionItemComponent,
     SessionEditFormComponent,
     FormateursComponent,
-    ParticipantsComponent
+    ParticipantsComponent,
+    DashboardComponent
 
 
   ],

@@ -4,6 +4,9 @@ import { SessionItemService } from "../session-item.service";
 import {ToastrService} from "ngx-toastr";
 import {Session} from "../../core/Models/session";
 import { SessionService } from "../../core/services/session.service";
+import { Location } from '@angular/common';
+
+
 @Component({
   selector: 'app-session-add-form',
   templateUrl: './session-add-form.component.html',
@@ -15,7 +18,8 @@ export class SessionAddFormComponent implements OnInit {
   constructor(
    
     private toastr: ToastrService,
-    private sessionService: SessionService
+    private sessionService: SessionService,
+    private location: Location
 
   ) { }
 
@@ -32,4 +36,8 @@ export class SessionAddFormComponent implements OnInit {
 
   }
 
+
+  reload() {
+    location.reload();
+  }
 }

@@ -1,6 +1,9 @@
 import { Component, OnInit, Directive, HostBinding, Input } from '@angular/core';
 import {SessionService} from "../core/services/session.service";
 import {Session} from "../core/Models/session";
+import { Location } from '@angular/common';
+
+
 @Component({
   selector: 'app-session-item-list',
   templateUrl: './session-item-list.component.html',
@@ -18,7 +21,7 @@ export class SessionItemListComponent implements OnInit {
 
   constructor(
    private sessionsService:SessionService, 
-  
+  private location: Location
 
   ) {
 
@@ -30,6 +33,15 @@ export class SessionItemListComponent implements OnInit {
     
 
     })
+  }
+     ngOnDestroy() {
+      
+    console.log("destroooooooooooooooooooooy  list ")
+     
+  }
+
+  reload() {
+    location.reload();
   }
 
 }

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { SessionItemService } from "../session-item.service";
 import { ActivatedRoute } from "@angular/router";
 import {ToastrService} from "ngx-toastr";
+import { SessionService } from "../../core/services/session.service";
+import { NgForm } from "@angular/forms/forms";
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-session-edit-form',
@@ -12,28 +14,44 @@ export class SessionEditFormComponent implements OnInit {
  id;
  session;
  private sub: any;
+ track; 
+ duree;
+ name;
 
 
   constructor(
     private route: ActivatedRoute,
-    private sessionService: SessionItemService,
-    private toastr: ToastrService
+    private sessionsService:SessionService,
+    private toastr: ToastrService,
+    private location: Location
 
   ) { }
 
   ngOnInit() {
-    this.sub=this.route.params.subscribe(params=>{
-      this.id=+params['id'];
-    });
-    this.session=this.sessionService.get(this.id);
+     this.route.params.subscribe(params => {
+      this.sessionsService.getSession(params['id']).subscribe(sessions => {
+        this.session = sessions;
+     
 
+      });
+
+    });
+    
   }
 
-  onSubmit() {
-    this.sessionService.add(this.session);
-    this.toastr.success("Session modifiée avec succès", 'success!');
+  onSubmit(form:NgForm) {
+    this.route.params.subscribe(params => {
+      this.sessionsService.editSession(form.value,params['id']).subscribe(sessions => {
+        this.session = sessions;
+      });
+    });
+    
+    // this.toastr.success("Session modifiée avec succès", 'success!');
+  }
 
 
+  reload() {
+    location.reload();
   }
 
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionItemService } from "../session-item.service";
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-admin',
@@ -9,9 +11,19 @@ import { SessionItemService } from "../session-item.service";
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(private location: Location) { }
 
-  ngOnInit() { console.log("admin"); 
+  ngOnInit() { 
+     
+  }
+   ngOnDestroy() {
+    console.log("destroooooooooooooooooooooy admin ")
+     
+  }
+
+  reload(){
+location.reload();
+
   }
 
 }

@@ -1,25 +1,28 @@
+<div class="container"> 
 <header> 
   <h2> Ajouter une session de formation </h2>
 </header >
+
 <form  #f="ngForm"
 (ngSubmit)="onSubmit(f)">
   <ul>
     <li>
       <label for="name" > Name </label>
-      <select name="name" id="name" [ngModel]="name2" required >
+      <!-- <select name="name" id="name" [ngModel]="name2" required >
         <option value="Formation Web" > Web </option>
         <option value="Formation Mobile" > Mobile </option>
-      </select>
+      </select> -->
+       <input type="text" name="name" id="name"  ngModel  >
     
     </li>
     <li>
       <label for="track"> Track </label>
-      <select name="track" id="track" [(ngModel)]="track" required > 
+      <!-- <select name="track" id="track" [(ngModel)]="track" required > 
         <option value="MEAN" > MEAN Stack </option>
         <option value="Angular"> Angular </option>
         <option value="Angular"> NodeJS </option>
-      </select>
-         
+      </select> -->
+         <input type="text" name="track" id="track"  ngModel  >
     </li>
     <i>
       <label for="date" > Date </label>
@@ -41,4 +44,14 @@
     <button type="submit" [disabled]=!f.valid> Save </button>
   
 </form>
-  
+  <div>
+   <div class="fixed-action-btn horizontal click-to-toggle">
+    <a class="btn-floating btn-large red">
+      <i class="material-icons">menu</i>
+    </a>
+    <ul>
+      <li><a (click)="reload()" routerLink="/admin/add"  class="btn-floating yellow darken-1"><i class="material-icons">playlist_add</i></a></li>
+      <li><a (click)="reload()"  routerLink="/admin/edit/5a29f18a4fa7832140c69716"  class="btn-floating green"><i class="material-icons">edit</i></a></li>
+      <li><a (click)="reload()"  routerLink="/admin/adminlist" class="btn-floating blue"><i class="material-icons">playlist_add_check</i></a></li>
+    </ul>
+  </div>
