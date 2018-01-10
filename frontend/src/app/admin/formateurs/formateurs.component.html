@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <i class=" large  material-icons">person_add</i>
+   
+    </div>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div class="input-field col s6">
+      <input placeholder="Nom formateur" name="name" id="name" type="text" required  ngModel>  
+    </div>
+      <div class="input-field col s6">
+      <input placeholder="Note  formateur" name="note" id="name" type="number" required  ngModel>  
+    </div>
+     <button class="btn waves-effect waves-light" type="submit" >Enregister 
+    <i class="material-icons right">send</i>
+  </button> 
+    </form>
+  <a routerLink="/admin/formateurs" (click)="actualiser()" class="secondary-content">
+          <i class="large material-icons">cached</i></a>
+
+  </div>
+  <ul class="collection with-header">
+        <li class="collection-header"><h4>Liste des formateurs</h4> 
+    <ng-container *ngFor="let i of formateurs">
+      <a  (click)="reload()" class="collection-item">
+        <a [routerLink]="['../formateur',i._id]" (click)="reload()">{{i.name}} </a>
+        <a  routerLink="/admin/formateurs" (click)="onDelete(i)" class="secondary-content">
+           <i class="material-icons">delete</i> 
+         
+        </a>
+      </a>
+        
+     
+    </ng-container>
+  </ul>
+  </div>

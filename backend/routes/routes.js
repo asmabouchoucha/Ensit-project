@@ -113,6 +113,17 @@ router.get('/formateurs/size', function(req, res, next) {
     res.json(sessions);
     });
     })
+  // Get formateur By Id
+   router.get("/formateur/:id", function (req, res,next) {
+             console.log(req.params.id);
+             Formateurs.find({_id:req.params.id},function (err,data) {
+                 if (!err) {
+                 res.json(data);
+
+                 }
+             });
+         });
+
 
     // Add formateur
 
